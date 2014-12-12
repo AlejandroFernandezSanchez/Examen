@@ -115,6 +115,10 @@ public class Usuario
         }
     }
     
+    /**
+     * Muestra la información de la comida que se comió, dando el número del orden en el que se comió. 
+     * (contando que el primero es 0)
+     */
     public void muestraComida(int index)
     {
         if (validIndex(index))
@@ -124,6 +128,9 @@ public class Usuario
         }
     }
     
+    /**
+     * comprueba que el valor que se le da es un índice válido
+     */
     public boolean validIndex(int num)
     {
         boolean valid = false;
