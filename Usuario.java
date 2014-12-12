@@ -62,19 +62,18 @@ public class Usuario
         System.out.println(strProt);
         System.out.println(strCar);
         System.out.println(strGra);
-        System.out.println("caloraías ingeirdas:                            " + calorias ); 
+        System.out.println("caloraías ingeridas:                            " + calorias ); 
     }
     
     /**
      * Hace comer al usuario un tipo de comida y una cierta cantidad del mismo ( en gramos).
      */
     public void comer(Alimento comida, float gr)
-    {
-        float grCien = gr/100;
-        proteinas=proteinas+comida.getProteinas()*grCien;        
-        grasas=grasas+comida.getGrasas()*(gr/100);       
-        carbohidratos=carbohidratos+comida.getCarbohidratos()*grCien;             
-        calorias=calorias+comida.getCalorias()*grCien;
+    {        
+        proteinas=proteinas+comida.getProteinas()*gr;        
+        grasas=grasas+comida.getGrasas()*gr;       
+        carbohidratos=carbohidratos+comida.getCarbohidratos()*gr;             
+        calorias=calorias+comida.getCalorias()*gr;
         gramos=gr;
         if (comida.getCalorias()>floCalor)
         {

@@ -4,17 +4,19 @@
  */
 public class Alimento
 {
+    //nombre del alimento
+    private String nombre;
+    
     /**
      * Atributos (por cada 100 gramos de alimento)
      */
-    private String nombre;
-    
     private float proteinas;
     
     private float carbohidratos;
     
     private float grasas;
-    
+        
+    //calorias del alimento
     private float calorias;
     
     /**
@@ -23,9 +25,9 @@ public class Alimento
     public Alimento(String nombre, float proteinas, float carbohidratos, float grasas )
     {
        this.nombre = nombre;
-       this.proteinas = proteinas;
-       this.carbohidratos = carbohidratos;
-       this.grasas = grasas;
+       this.proteinas = proteinas/100;
+       this.carbohidratos = carbohidratos/100;
+       this.grasas = grasas/100;
        calorias = getCalorias();
     }
     
@@ -72,7 +74,12 @@ public class Alimento
         System.out.println(mayoritario);
     }
     
-     public String getNombre()
+    
+    /**
+     * Estos son los métodos getters de la clase que permiten que se puedan usar los valores de los atributos
+     * por otros métodos
+     */
+    public String getNombre()
     {        
         return nombre;
     }
@@ -91,10 +98,10 @@ public class Alimento
     {
         return carbohidratos;
     }
-    
+    //devuelve las calorias por 100 gramos del alimento
      public float getCalorias()
     {
-        calorias = grasas*9 + carbohidratos*4+ proteinas*4;
+        calorias = (grasas*9 + carbohidratos*4+ proteinas*4);
         return calorias;
     }
 }
