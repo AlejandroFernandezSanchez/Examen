@@ -63,4 +63,48 @@ public class Usuario
         calorias=calorias+comida.getCalorias()*grCien;
         gramos=gr;
     }
+    
+    /**
+     * Compara calorias con otro usuario
+     */
+    public void comparar(Usuario rival)
+    {
+        if (calorias==rival.getCalorias())
+        {
+            System.out.println(nombre+ " ha consumido más calorias que " + rival.getNombre());            
+        }
+        else if (calorias<rival.getCalorias())
+        {
+            System.out.println(rival.getNombre()+ " ha consumido más calorias que " + nombre);
+        }
+        else
+        {
+             System.out.println("Los dos han consumido las mismas calorías");
+        }
+    }
+    
+    public float getProteinas()
+    {
+        return proteinas;
+    }
+    
+     public float getGrasas()
+    {
+        return grasas;
+    }
+    
+     public float getCarbohidratos()
+    {
+        return carbohidratos;
+    }
+    
+     public float getCalorias()
+    {        
+        return calorias;
+    }
+    
+    public String getNombre()
+    {        
+        return nombre;
+    }
 }
