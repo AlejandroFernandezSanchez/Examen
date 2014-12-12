@@ -1,4 +1,5 @@
-
+//esta linea permite usar la clase ArrayList
+import java.util.ArrayList;
 /**
  *Esta clase representan a las personas que utilizan el programa
  */
@@ -16,13 +17,26 @@ public class Usuario
     private float calorias;
     //gramos de comida total ingerida
     private float gramos;
-
+    //alimento mas calorico hasta el momento consumido
+    private String MasCalo;
+    //calorias del alimento mas calorico consumido hasta el momento
+    private float floCalor;
+    //lista de alimentos consumidos
+    private ArrayList<Alimento> comidos;
     /**
      * Constructor de la clase
      */
     public Usuario(String nombre)
     {
         this.nombre=nombre;
+        comidos = new ArrayList<Alimento>();
+        proteinas=0;
+        carbohidratos=0;
+        grasas=0;
+        calorias=0;
+        gramos=0;
+        MasCalo=null;
+        floCalor=0;
     }
     
     /**
@@ -62,6 +76,12 @@ public class Usuario
         carbohidratos=carbohidratos+comida.getCarbohidratos()*grCien;             
         calorias=calorias+comida.getCalorias()*grCien;
         gramos=gr;
+        if (comida.getCalorias()>floCalor)
+        {
+            floCalor = comida.getCalorias();
+            MasCalo = comida.getNombre();
+        }
+        comidos.add(comida);
     }
     
     /**
@@ -82,6 +102,45 @@ public class Usuario
              System.out.println("Los dos han consumido las mismas calorías");
         }
     }
+    
+    public void masCalorico()
+    {
+        if(floCalor>0)
+        {
+            System.out.println("Alimento más calórico ingerido por el usuario hasta el momento: " + MasCalo);
+        }
+        else
+        {
+            System.out.println("Aun no se ha consumido ningún alimento");
+        }
+    }
+    
+    public void muestraComida(int index)
+    {
+        if (validIndex(index))
+        {
+            Alimento comida = comidos.get(index);
+            comida.muestraDatos();
+        }
+    }
+    
+    public boolean validIndex(int num)
+    {
+        boolean valid = false;
+        if (!(num<0 || comidos.size()-1<num))
+        {
+            valid=true;          
+        }   
+        return valid;
+    }
+    
+    
+    
+    /**
+     * Los siguientes métodos son "getters" que sirven para devolver el valor de los atributos que utilizan otros
+     * métodos
+     */
+    
     
     public float getProteinas()
     {

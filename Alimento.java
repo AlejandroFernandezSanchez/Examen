@@ -34,7 +34,7 @@ public class Alimento
      */
     public void muestraDatos()
     {    
-        System.out.println("Nombre:                                         " + nombre );        
+        System.out.println("Nombre:                                          " + nombre );        
         System.out.println("Proteinas por cada 100 gramos :                  " + proteinas );
         System.out.println("Carbohidratos por cada 100 gramos:               " + carbohidratos );
         System.out.println("grasas por cada 100 gramos:                      " + grasas );
@@ -70,6 +70,11 @@ public class Alimento
             mayoritario = mayoritario + "Grasas";
         }
         System.out.println(mayoritario);
+    }
+    
+     public String getNombre()
+    {        
+        return nombre;
     }
     
     public float getProteinas()
